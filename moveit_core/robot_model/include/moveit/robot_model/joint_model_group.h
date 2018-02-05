@@ -401,6 +401,7 @@ public:
   }
   double getMaximumExtent(const JointBoundsVector& active_joint_bounds) const;
 
+  double l2norm(const double* state1, const double* state2, const bool normalize) const;
   double distance(const double* state1, const double* state2) const;
   void interpolate(const double* from, const double* to, double t, double* state) const;
 
