@@ -263,7 +263,7 @@ protected:
 
   InterpolationFunction interpolation_function_;
   DistanceFunction distance_function_;
-
+  
   double tag_snap_to_segment_;
   double tag_snap_to_segment_complement_;
 };
