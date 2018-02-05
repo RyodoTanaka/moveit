@@ -187,6 +187,7 @@ public:
   virtual void copyState(ompl::base::State* destination, const ompl::base::State* source) const;
   virtual void interpolate(const ompl::base::State* from, const ompl::base::State* to, const double t,
                            ompl::base::State* state) const;
+  virtual double l2norm(const ompl::base::State* state1, const ompl::base::State* state2, const bool normalize) const;
   virtual double distance(const ompl::base::State* state1, const ompl::base::State* state2) const;
   virtual bool equalStates(const ompl::base::State* state1, const ompl::base::State* state2) const;
   virtual double getMaximumExtent() const;
