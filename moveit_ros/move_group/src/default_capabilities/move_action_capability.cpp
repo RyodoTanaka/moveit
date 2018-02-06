@@ -162,6 +162,7 @@ void move_group::MoveGroupMoveAction::executeMoveCallback_PlanOnly(const moveit_
   try
   {
     context_->planning_pipeline_->generatePlan(the_scene, goal->request, res);
+    std::cout << "Planning pipeline end" << std::endl;
   }
   catch (std::runtime_error& ex)
   {
