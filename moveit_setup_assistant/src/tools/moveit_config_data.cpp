@@ -372,6 +372,11 @@ bool MoveItConfigData::outputOMPLPlanningYAML(const std::string& file_path)
   TRRT.addParameter("k_constant", "0.0", "value used to normalize expresssion. default: 0.0 set in setup()");
   planner_des.push_back(TRRT);
 
+  OMPLPlannerDescription RRTEstimate("RRTEstimate", "geometric");
+  RRTEstimate.addParameter("range", "0.0", "Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()");
+  RRTEstimate.addParameter("goal_bias", "0.05", "When close to goal select goal, with this probability? default: 0.05");
+  planner_des.push_back(RRTEstimate);
+  
   OMPLPlannerDescription PRM("PRM", "geometric");
   PRM.addParameter("max_nearest_neighbors", "10", "use k nearest neighbors. default: 10");
   planner_des.push_back(PRM);
