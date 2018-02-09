@@ -416,7 +416,6 @@ double moveit::core::JointModelGroup::getMaximumExtent(const JointBoundsVector& 
 
 double moveit::core::JointModelGroup::l2norm(const double* state1, const double* state2, const bool normalize) const
 {
-  std::cout << "you reached l2norm" << std::endl;
   double d = 0.0;
   if (normalize) {
     for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i){
