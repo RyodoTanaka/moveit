@@ -429,7 +429,7 @@ double moveit::core::JointModelGroup::l2norm(const double* state1, const double*
       d += pow(dist, 2.);
     }
   }
-  return sqrt(d);
+  return d;
 }
 
 double moveit::core::JointModelGroup::distance(const double* state1, const double* state2) const
