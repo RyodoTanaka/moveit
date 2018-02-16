@@ -1238,8 +1238,8 @@ double moveit::core::RobotModel::distance(const double* state1, const double* st
   double d = 0.0;
   for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i)
     d += active_joint_model_vector_[i]->getDistanceFactor() *
-      active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],
-                                              state2 + active_joint_model_start_index_[i]);
+         active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],
+                                                 state2 + active_joint_model_start_index_[i]);
   return d;
 }
 

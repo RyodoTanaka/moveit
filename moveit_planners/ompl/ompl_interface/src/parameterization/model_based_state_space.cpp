@@ -74,7 +74,6 @@ ompl_interface::ModelBasedStateSpace::ModelBasedStateSpace(const ModelBasedState
                                boost::bind(&ModelBasedStateSpace::getTagSnapToSegment, this));
 }
 
-
 ompl_interface::ModelBasedStateSpace::~ModelBasedStateSpace()
 {
 }
@@ -164,14 +163,15 @@ double ompl_interface::ModelBasedStateSpace::getMeasure() const
   return m;
 }
 
-double ompl_interface::ModelBasedStateSpace::l2norm(const ompl::base::State* state1, const ompl::base::State* state2, const bool normalize) const
+double ompl_interface::ModelBasedStateSpace::l2norm(const ompl::base::State* state1, const ompl::base::State* state2,
+                                                    const bool normalize) const
 {
   return spec_.joint_model_group_->l2norm(state1->as<StateType>()->values, state2->as<StateType>()->values, normalize);
 }
 
 double ompl_interface::ModelBasedStateSpace::distance(const ompl::base::State* state1,
                                                       const ompl::base::State* state2) const
-{ 
+{
   if (distance_function_)
     return distance_function_(state1, state2);
   else

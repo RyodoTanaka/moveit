@@ -417,11 +417,15 @@ double moveit::core::JointModelGroup::getMaximumExtent(const JointBoundsVector& 
 double moveit::core::JointModelGroup::l2norm(const double* state1, const double* state2, const bool normalize) const
 {
   double d = 0.0;
-  if (normalize) {
-    for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i){
-      double dist = active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],state2 + active_joint_model_start_index_[i]);
-      double space_size = active_joint_models_bounds_[i][0][0].max_position_ - active_joint_models_bounds_[i][0][0].min_position_;
-      d += pow(dist/space_size,2.);
+  if (normalize)
+  {
+    for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i)
+    {
+      double dist = active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],
+                                                            state2 + active_joint_model_start_index_[i]);
+      double space_size =
+          active_joint_models_bounds_[i][0][0].max_position_ - active_joint_models_bounds_[i][0][0].min_position_;
+      d += pow(dist / space_size, 2.);
     }
     // if(d<0.001){
     //   std::cout << "!! Here : ";
@@ -431,9 +435,13 @@ double moveit::core::JointModelGroup::l2norm(const double* state1, const double*
     //     std::cout << tmp1[0] << "\t" << tmp2[0] << std::endl;
     //   }
     // }
-  } else {
-     for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i){
-      double dist = active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],state2 + active_joint_model_start_index_[i]);
+  }
+  else
+  {
+    for (std::size_t i = 0; i < active_joint_model_vector_.size(); ++i)
+    {
+      double dist = active_joint_model_vector_[i]->distance(state1 + active_joint_model_start_index_[i],
+                                                            state2 + active_joint_model_start_index_[i]);
       d += pow(dist, 2.);
     }
   }
